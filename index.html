@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080f1d">
+  <meta name="description" content="Nhật ký tập gym và bắn súng thể thao cá nhân – offline-first">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Gym Log">
+  <title>Gym Log v10</title>
+</head>
+<body>
+  <div id="app" class="app"><div class="loading">Đang mở Gym Log…</div></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="rest-dock" hidden></div>
+  <div id="modal" class="modal" hidden><div class="modal-screen" data-action="close-modal"></div><div id="modal-body" class="modal-body" role="dialog" aria-modal="true"></div></div>
+  <nav id="bottom-nav" aria-label="Điều hướng"></nav>
+  <input id="photo-picker" type="file" accept="image/*" multiple hidden>
+  <input id="backup-picker" type="file" accept=".json,.zip,application/json,application/zip" hidden>
+  <script src="./legacy.js" defer></script>
+  <script src="./storage.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
