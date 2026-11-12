@@ -14,3 +14,16 @@ input,select,textarea{border:1px solid #37506a;border-radius:12px;background:#18
 #rest-dock{position:fixed;z-index:24;bottom:calc(74px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(96vw,390px);border-radius:16px;border:1px solid #6980b7;background:#243a62;box-shadow:0 8px 30px #0009;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;gap:10px}#rest-dock strong{font-size:19px}#rest-dock button{font-size:12px;min-height:34px;padding:6px}
 .guide-art{border-radius:16px;background:radial-gradient(circle at 60% 32%,#263f65,#101d33);border:1px solid #2c4668;padding:11px;margin:12px 0}.guide-art svg{display:block;width:100%;height:auto;max-height:205px}.guide-tip{font-size:14px;line-height:1.6;margin:10px 0}.guide-tip strong{color:var(--accent)}.tiny{font-size:11px;color:#91a6be}.version{font-size:11px;letter-spacing:.08em;color:#8497b0}
 @media(min-width:680px){.app{padding:30px 24px}.card{padding:20px}.exercise{padding:18px}}@media(max-width:360px){.app{padding-left:10px;padding-right:10px}.card{padding:12px}.stats{gap:5px}.stat strong{font-size:19px}.set-table{gap:4px;grid-template-columns:23px minmax(0,1fr) minmax(0,1fr) 38px}.set-table button{height:41px;min-height:41px}}
+
+/* iPhone PWA layout fixes — v10.0.1
+   A native iOS date control can be wider than a half-width CSS grid cell. */
+html{min-height:100%;min-height:100dvh}
+body{min-height:100%;min-height:100dvh}
+.app{width:100%;min-height:calc(100dvh - 82px - env(safe-area-inset-bottom))}
+.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.form-grid>.form-field{min-width:0}
+.form-grid:has(#sf-date)>.form-field:has(#sf-date){grid-column:1 / -1}
+input[type="date"]{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;-webkit-appearance:none;appearance:none;font-size:16px}
+input[type="date"]::-webkit-date-and-time-value{min-width:0;text-align:left}
+#bottom-nav{position:fixed!important;left:0;right:0;bottom:0!important;transform:translate3d(0,0,0);isolation:isolate;padding-bottom:max(env(safe-area-inset-bottom),8px);min-height:calc(62px + env(safe-area-inset-bottom))}
+@supports (height:100dvh){.app{min-height:calc(100dvh - 82px - env(safe-area-inset-bottom))}}
